@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson</title>
+</head>
+
+<body>
+    <div class="sample">class属性がsample 1個目</div>
+    <div class="sample">class属性がsample 2個目</div>
+    <div class="sample">class属性がsample 3個目</div>
+    <div class="sample">オリジナルのテキストです</div>
+    <script>
+        const elements = document.querySelectorAll('.sample');
+        console.log(elements[1]);
+        console.log(window);
+        //windowオブジェクト内のalert();
+        //alert('アラートです');
+        window.console.log('windowの中のもの');
+        const tag = document.querySelector('.sample:nth-child(4)');
+        tag.textContent = 'テキストを書き換えた！';
+
+        // 10月21日ここから
+        console.log(document.URL);
+        console.log(document['URL']);
+        console.log(document.charset);
+        console.log(document.images.length);
+
+        console.dir(document);
+
+        // オブジェクトの上書き
+        document.firstElementChild.textContent = '上書きサンプル'
+
+        // for文の九九7の段
+        for (let i = 1; i <= 9; i++) {
+            console.log('7×' + i + '=' + (i * 7));
+            //文字列の連結 （JavaScriptは、文字列型が入った瞬間に文字列の連結になるので、計算は先に）
+        }
+
+        const name_list = ['松田', '田中', '中山', '山本', '本田'];
+        for (let i = 0; i < name_list.length; i++) {
+            console.log(i + 1 + '人目は' + name_list[i]);
+        }
+    </script>
+</body>
+
+</html>

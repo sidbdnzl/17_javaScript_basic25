@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>画像切り替え</title>
+    <style>
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+
+            button {
+                margin: 0 5px;
+                padding: 8px 16px;
+                border: none;
+                background: #ccc;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:hover {
+                    background: #aaa;
+                }
+
+                &.active {
+                    background: #333;
+                    color: #fff;
+                }
+            }
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+
+            img {
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 6px;
+                transition: opacity 0.3s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        .gallery img.active {
+            display: none;
+        }
+
+        .gallery img.hidden {
+            display: none;
+        }
+
+        img {
+            opacity: 0;
+            transition: opacity 2s ease-in-out 400ms;
+        }
+
+        img.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buttons">
+        <button name="all">すべて</button>
+        <button name="animal">動物</button>
+        <button name="scenery">風景</button>
+        <button name="food">食べ物</button>
+    </div>
+
+    <div class="gallery">
+        <img src="./1014images/js_images-001.png" alt="動物1" class="animal" />
+        <img src="./1014images/js_images-002.png" alt="動物2" class="animal" />
+        <img src="./1014images/js_images-003.png" alt="風景1" class="scenery" />
+        <img src="./1014images/js_images-004.png" alt="風景2" class="scenery" />
+        <img src="./1014images/js_images-005.png" alt="食べ物1" class="food" />
+    </div>
+    <script>
+        // ① buttonと画像の要素を全て取得
+        //マッチする要素を全部とるquerySelectorAll();
+        const buttons = document.querySelectorAll('button');
+        const images = document.querySelectorAll('img');
+        console.log(buttons);
+        console.log(images);
+
+        // ② buttonsの各要素にイベント（ボタンをクリック）を設定
+        // lengthは、配列の要素数なので4
+        for (let i = 0; i < buttons.length; i++) {
+            // iは、0~3になる
+            buttons[i].addEventListener('click', function () {
+                // nameプロパティを持っているので、.nameでつなげる
+                console.log(buttons[i].name);
+                // ③ for文で画像ファイルのclassを取得
+                // 画像を取得
+                // ④ buttonのname属性とimgのclass属性で判定
+                for (let j = 0; j < images.length; j++) {
+                    if (buttons[i].name === 'all') {
+                        images[j].classList.remove('hidden');
+                        images[j].classList.add('active');
+                    } else if (images[j].classList.contains(buttons[i].name)) {
+                        images[j].classList.add('active');
+                        images[j].classList.remove('hidden');
+                    } else {
+                        images[j].classList.remove('active');
+                        images[j].classList.add('hidden');
+                    }
+                }
+            }
+            )
+        };
+
+        // 読み込まれたら（イベントload）
+        // load
+        window.addEventListener('load', function () {
+            for (let i = 0; i < images.length; i++) {
+                setTimeout(function () {
+                    images[i].classList.add('show');
+                }, (i + 1) * 500);
+            }
+        });
+
+        // ⑤ classListオブジェクトでclassを操作
+        // ⑥ allの場合の判定を追加
+
+        /* buttons[0], addEventListener('click', function () {
+            console.log('all')
+        });
+        buttons[1], addEventListener('click', function () {
+            console.log('animal')
+        });
+        buttons[2], addEventListener('click', function () {
+            console.log('scenery')
+        });
+        buttons[0], addEventListener('click', function () {
+            console.log('food')
+        }); */
+    </script>
+</body>
+
+</html>
