@@ -1,0 +1,65 @@
+question5.html
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>おにぎり職人ゲーム</title>
+</head>
+
+<body>
+    <h1>🍙 おにぎり職人チャレンジ！</h1>
+    <p>
+        ボタンをクリックしてしゃけおにぎりを握ろう。<br />具材はランダムで決まるよ！
+    </p>
+    <button id="makeBtn">おにぎりを握る</button>
+    <p id="log">具材がここに表示されます。</p>
+    <p id="shakeCount"><span>0</span> 回</p>
+    <script>
+        //Q5で利用する
+        const shakeCount = document.querySelector('#shakeCount span');
+        let shakeCountNum = 0;
+        //ここに記述していきます。
+        function makeOnigiri() {
+            console.log("おにぎりを握った！");
+        }
+        makeOnigiri();
+
+        const ingredients = ['しゃけ', 'うめ', 'こんぶ', 'ツナマヨ'
+        ];
+        console.log(ingredients)
+
+        // 自分の回答
+        // document.getElementById('makeBtn').addEventListener('click', function () {
+        //     const result = ingredients[Math.floor(Math.random() * ingredients.length)];
+        //     console.log(result);
+
+        //     if (result === "しゃけ") {
+        //         shakeCountNum++;
+        //         shakeCount.textContent = shakeCountNum;
+        //     }
+        // });
+
+        // 正解
+        // クリックイベント
+        // クリックするものを読み込んで
+        const makeBtn = document.querySelector('#makeBtn');
+        // クリックしたらイベント(click)
+        makeBtn.addEventListener('click', function () {
+            // 処理
+            // ランダム、配列の要素の数を最大値に
+            const index = math.floor(Math.random() * ingredients.length);
+            // 配列のインデックスをあてる
+            const result = ingredients[index];
+            console.log(result);
+
+            // Q5
+            if (result == 'しゃけ') {
+                shakeCountNum = shakeCountNum + 1;
+                shakeCount.textContent = shakeCountNum;
+            }
+        });
+    </script>
+</body>
+
+</html>
