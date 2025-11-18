@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- styleはheadの中に -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .globalmenu {
+            background-color: #000;
+            width: 50%;
+            height: 100vh;
+            position: relative;
+            transition: transform 200ms ease-in-out;
+            /*transform: translateX(-90%);*/
+            /*↑上のコメントアウトを外す */
+        }
+
+        .open {
+            transform: translateX(0);
+        }
+
+        .menu {
+            margin: 0;
+            list-style-type: none;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="images">
+        <img src="path/cat.png" alt="猫の画像" class="img_cat">
+        <img src="path/dog.png" alt="犬の画像" class="img_dog">
+        <img src="path/panda.png" alt="パンダの画像" class="img_panda">
+    </div>
+
+    <p><span>トライデントコンピュータ専門学校</span>は愛知県名古屋市にあり、1984年に開校。IT技術者多数育成。現在、情報処理系3学科とCG／ゲーム開発／<span>Webデザイン</span>／CADなどの学科もあり、卒業生の<span>就職実績</span>も豊富です。
+    </p>
+
+    <!-- body中に -->
+    <nav class="globalmenu">
+        <ul class="menu">
+            <li>メニュー項目01</li>
+            <li>メニュー項目02</li>
+            <li>メニュー項目03</li>
+            <li>メニュー項目04</li>
+        </ul>
+        <button>OPEN</button>
+    </nav>
+
+    <h1>カラーボタン</h1>
+    <div class="colorlist">
+        <button id="red">赤色</button>
+        <button id="blue">青色</button>
+        <button id="green">緑色</button>
+        <button id="yellow">黄色</button>
+        <button id="pink">桃色</button>
+        <button id="purple">紫色</button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
