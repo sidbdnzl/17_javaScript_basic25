@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12星座の星占い</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h2>2025年12月<br>12星座占い</h2>
+
+    <p>誕生日を入力して占いスタート！</p>
+
+    <div>
+        <select id="month"></select>
+        <select id="day"></select>
+    </div>
+
+    <button onclick="tellFortune()">占う</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="horoscope_images" id="imagesBox">
+        <img id="aries" src="./images/aries.png" alt="牡羊座">
+        <img id="taurus" src="./images/taurus.png" alt="牡牛座">
+        <img id="gemini" src="./images/gemini.png" alt="双子座">
+        <img id="cancer" src="./images/cancer.png" alt="蟹座">
+        <img id="leo" src="./images/leo.png" alt="獅子座">
+        <img id="virgo" src="./images/virgo.png" alt="乙女座">
+        <br>
+        <img id="libra" src="./images/libra.png" alt="天秤座">
+        <img id="scorpio" src="./images/scorpio.png" alt="蠍座">
+        <img id="sagittarius" src="./images/sagittarius.png" alt="射手座">
+        <img id="capricorn" src="./images/capricorn.png" alt="山羊座">
+        <img id="aquarius" src="./images/aquarius.png" alt="水瓶座">
+        <img id="pisces" src="./images/pisces.png" alt="魚座">
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
