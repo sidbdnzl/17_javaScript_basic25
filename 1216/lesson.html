@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同期・非同期</title>
+</head>
+
+<body>
+    <script>
+        // // 関数の定義→関数式に変える
+        // const syncAlert = function () {
+        //     alert('アラートを表示');
+        //     console.log('ログを出力');
+        // }
+        // // 関数の実行
+        // syncAlert();
+
+        // 
+        const asyncAlert = function () {
+            setTimeout(function () {
+                alert('アラートを表示');
+            }, 0);
+            console.log('ログを出力');
+        };
+
+        asyncAlert();
+    </script>
+</body>
+
+</html>

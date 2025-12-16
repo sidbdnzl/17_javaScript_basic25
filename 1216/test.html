@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const site = {
+            title: 'Portfolio',
+            uthor: 'Yamada',
+            themeColor: '#ff9900'
+        }
+        console.log(site)
+
+
+        const getTotalPrice = function (price) {
+            const tax = 0.1;
+            return price * (1 + tax);
+        }
+        console.log(getTotalPrice);
+
+        const isInStock = stock => stock > 0;
+        console.log(isInStock(1));
+
+        const getCount = function (item) {
+            const count = item.length;
+            return `持ち物は${count}個です`;
+        }
+        const items = ['財布', '鍵', 'スマホ']
+        console.log(getCount(items));
+
+
+
+        const getSalePrice = function (product) {
+            const count = 0.2;
+            return Math.floor(product.price * (1 - count));
+        };
+
+        const product = { name: 'ノート', price: 300 };
+        console.log(getSalePrice(product));
+    </script>
+</body>
+
+</html>
