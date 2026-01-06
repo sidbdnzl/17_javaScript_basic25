@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコープ</title>
+</head>
+
+<body>
+
+    <script>
+        // verは関数スコープ
+        // let、constはブロックスコープ
+        // 関数スコープ(ローカルスコープ)
+        // 関数の定義
+        function sample() {
+            const x = 10;
+            console.log(x);
+        }
+        // 関数の呼び出し
+        sample(); //10
+        // console.log(x); //エラー :xは関数の中でしか使えない
+
+        // ブロックスコープ(ローカルスコープ)
+        if (true) {
+            const x = 10;
+            console.log(x); //10
+        }
+        // console.log(x); //エラー :xは関数の中でしか使えない
+
+        // グローバルスコープ
+        const z = 1;
+        // 関数の定義
+        function doSomething() {
+            console.log(z);//1
+        }
+
+        if (true) {
+            console.log(z);//1
+        }
+
+        doSomething();//1(関数の)
+
+
+        const a = 1; //グローバルスコープ
+        function doSomething1() {
+            const a = 2; //関数スコープ
+            console.log(a + '関数スコープ'); //関数スコープからaを参照
+            if (true) {
+                const a = 3; //ブロックスコープ
+                console.log(a + 'ブロックスコープ'); //ブロックスコープからaを参照
+            }
+            console.log(a + '関数スコープ');
+        }
+        doSomething1();
+        function doSomething2() {
+            const b = 1; //関数スコープ
+            // const b = 2; //使うことができない。
+            // let、constでもエラーになる
+            // letがなければ、再代入できます。
+            // constだったら、再代入もできません。
+            // ES2015以降は、verは使わないことが推奨されています。
+        }
+        doSomething2();
+
+
+        // オブジェクトのメソッド
+        const person = {
+            name: 'アリス',//文字列 == プロパティ
+            age: 20,//数値 == プロパティ
+            insterest: ['読書', '料理'],//配列 == プロパティ
+            greet: function () {
+                console.log('こんにちは');
+                // windowオブジェクト + 組み込み関数
+            },//関数 == メソッド
+        };
+
+        // 関数を呼び出す(実行)
+        person.greet(); //こんにちは
+        // オブジェクト名 + メソッド名
+        // 何かの値に()がついていたらそれは関数の呼び出し
+        // 関数が宣言されているか？もしくは、JavaScriptに組み込まれている関数か？
+
+        // アリス
+        console.log(person.name); //アリス
+        // windowオブジェクト + 組み込み関数(オブジェクト名 + メソッド名)
+
+
+        // メソッドのthis
+        const person2 = {
+            name: 'Alice',
+            greet: function () {
+                // オブジェクト内部で使う場合は、thisを使う
+                console.log(`こんにちは、私は${this.name}です。`);
+                // テンプレートリテラル（変数名）
+            },
+        };
+
+        person2.greet();//こんにちは、私はAliceです。
+
+        // オブジェクトの上書き
+        person2.name = 'Bob';//Bobを代入
+
+        // メソッドの呼び出し
+        person2.greet(); //こんにちは、私はBobです。
+        // Bob
+        console.log(person2.name);//Bob
+
+
+        // 配列のlength（要素の数）
+        const interests = ['読書', '料理', 'キャンプ'];
+        const count = interests.length;
+        console.log(count); //3
+
+        // 配列の最後尾に要素を追加
+        interests.push('散歩');//配列の末尾に要素を追加
+        console.log(interests);//['読書','料理','キャンプ','散歩']
+        console.log(interests[3]);
+
+
+        // 配列の最後尾から値を取り出す
+        const alphabet = ['a', 'b', 'c'];
+        const last = alphabet.pop();
+        console.log(last); //c
+        console.log(alphabet); //['a','b']
+        // pop()は、配列の最後尾の要素を取り出すと、同時に配列の要素数も減る。
+
+
+        // 特定の要素が配列に含まれているか？
+        // includesメソッドは、含まれているか、含まれていないかを判定するだけなので、trueかfalseを返す。
+        const fruits = ['りんご', 'みかん', 'バナナ'];
+        const check1 = fruits.includes('りんご'); //true
+        console.log(check1);
+        const check2 = fruits.includes('ぶどう') //false
+        console.log(check2);
+
+        //  配列要素の結合と文字列の分割
+        const join = interests.join('と');
+        console.log(join); //読書と料理とキャンプと散歩
+
+        // 文字列の分割（文字列から配列の生成）
+        const string = '読書＆料理＆キャンプ';
+        const split = string.split('＆');
+        console.log(split); //]['読書','料理','キャンプ']
+    </script>
+
+</body>
+
+</html>
