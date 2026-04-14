@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const firstScore = 32;
+        const secondScore = 48;
+
+        // 判定基準
+        const passMark = 120; // 合格点
+        const borderlineMark = 70; // 赤点基準点
+
+        if (firstScore + secondScore >= passMark) {
+            console.log("合格");
+        } else if (firstScore + secondScore < passMark || firstScore + secondScore >= borderlineMark) {
+            console.log("補講");
+        } else {
+            console.log("不合格");
+        }
+    </script>
+</body>
+
+</html>

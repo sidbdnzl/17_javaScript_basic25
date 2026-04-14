@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="kimen_lists">
+        <li>一堂 零</li>
+        <li>冷越 豪</li>
+        <li>出瀬 潔</li>
+        <li>大間 仁</li>
+        <li>物星 大</li>
+    </ul>
+    <p>クリックしたのは、<span class="result_area"></span>です。</p>
+
+    <script>
+        const result_area = document.querySelector(".result_area");
+        const kimen_lists = document.getElementById(".kimen_lists")
+
+        kimen_lists.addEventListener('click', function (event) {
+            if (event.target.tagName === 'LI') {
+                const clickText = event.target.textContent;
+
+                result_area.textContent = clickedText
+            }
+        })
+    </script>
+
+</body>
+
+</html>
